@@ -38,7 +38,7 @@ public class HomeController {
 	
 	@RequestMapping(value = "mainpage", method = RequestMethod.GET)
 	public String mainpage() {
-		return "index";
+		return "mainpage";
 	}
 	
 }
