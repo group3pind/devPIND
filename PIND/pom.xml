@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.team</groupId>
 	<artifactId>pind</artifactId>
-	<name>choiAjax</name>
+	<name>pind</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
