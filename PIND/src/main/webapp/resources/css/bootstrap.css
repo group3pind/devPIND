@@ -4585,7 +4585,7 @@ input[type="button"].btn-block {
 }
 
 .card-title {
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.3rem;
 }
 
 .card-subtitle {
@@ -6217,6 +6217,20 @@ a.close.disabled {
   position: relative;
 }
 
+.carousel.slide {
+	width: 100%;
+}
+
+.caralign{
+	display: grid;
+	grid-template-columns: 7fr 3fr;
+}
+
+.caralign-child{
+	display: inline-block;
+	margin: auto;
+}
+
 .carousel.pointer-event {
   -ms-touch-action: pan-y;
   touch-action: pan-y;
@@ -6578,8 +6592,10 @@ button.bg-light:focus {
 }
 
 .bg-dark {
-  background-color: #343a40 !important;
+  background-color: #1d2124 !important;
 }
+
+
 
 a.bg-dark:hover, a.bg-dark:focus,
 button.bg-dark:hover,
@@ -6735,6 +6751,7 @@ button.bg-dark:focus {
 
 .d-block {
   display: block !important;
+  margin: 0px auto;
 }
 
 .d-table {
