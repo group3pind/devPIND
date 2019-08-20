@@ -605,6 +605,7 @@ pre code {
       flex-wrap: wrap;
   margin-right: -15px;
   margin-left: -15px;
+  margin-bottom: 100px;
 }
 
 .no-gutters {
@@ -6981,7 +6982,7 @@ button.bg-light:focus {
 }
 
 .py-5.bg-dark{
-	background-color: #343a40 !important;	
+	background-color: #fff !important;	
 }
 
 a.bg-dark:hover, a.bg-dark:focus,
@@ -10364,7 +10365,7 @@ button.bg-dark:focus {
 }
 
 .text-white {
-  color: #fff !important;
+  color: #000 !important;
 }
 
 .text-primary {
