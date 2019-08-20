@@ -7,11 +7,11 @@
 <title>PIND page header</title>
 
   <!-- Bootstrap core CSS -->
-  <link href="resources/css/bootstrap.css" rel="stylesheet">
-  <link href="resources/css/minty.css" rel="stylesheet">
+  <link href="../resources/css/bootstrap.css" rel="stylesheet">
+  <link href="../resources/css/minty.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="resources/css/shop-homepage.css" rel="stylesheet">
+  <link href="../resources/css/shop-homepage.css" rel="stylesheet">
   
   <style type="text/css">
   header {
@@ -31,7 +31,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" >
     <div class="container">
       <a class="navbar-brand" href="javascript:sidebar()">SIDEBAR</a>
-      <a class="navbar-brand" href="#">FIND</a>
+      <a class="navbar-brand" href="#">PIND</a>
      <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="text" placeholder="Search">
       <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
@@ -60,8 +60,8 @@
       </div>
     </div>
   </nav>
-  <script src="resources/vendor/jquery/jquery.min.js"></script>
-  <script src="resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../resources/vendor/jquery/jquery.min.js"></script>
+  <script src="../resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
  </header>
 </body>
 </html>

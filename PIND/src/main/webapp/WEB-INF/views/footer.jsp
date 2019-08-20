@@ -7,20 +7,20 @@
 <title>PIND page footer</title>
 
   <!-- Bootstrap core CSS -->
-  <link href="resources/css/bootstrap.css" rel="stylesheet">
-  <link href="resources/css/minty.css" rel="stylesheet">
+  <link href="../resources/css/bootstrap.css" rel="stylesheet">
+  <link href="../resources/css/minty.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="resources/css/shop-homepage.css" rel="stylesheet">
+  <link href="../resources/css/shop-homepage.css" rel="stylesheet">
   
   <style type="text/css">
   footer {
-   position:relative;
+   position:fixed;
    left:0px;
    bottom:0px;
    height:60px;
    width:100%;
-
+border-top: solid 1px black;
 }
   
   </style>
@@ -37,7 +37,7 @@
   
 
   <!-- Bootstrap core JavaScript -->
-  <script src="resources/vendor/jquery/jquery.min.js"></script>
-  <script src="resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../resources/vendor/jquery/jquery.min.js"></script>
+  <script src="../resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
