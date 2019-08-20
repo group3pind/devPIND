@@ -8,11 +8,11 @@
 <title>Shop Homepage - Start Bootstrap Template</title>
 
   <!-- Bootstrap core CSS -->
-  <link href="resources/css/minty.css" rel="stylesheet">
-  <link href="resources/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+  <link href="css/minty.css" rel="stylesheet">
+  <link href="css/bootstrap.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="resources/css/shop-homepage.css" rel="stylesheet">
+  <link href="css/shop-homepage.css" rel="stylesheet">
   
   <script>
   
