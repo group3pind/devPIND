@@ -7,7 +7,8 @@
 <title>PIND page footer</title>
 
   <!-- Bootstrap core CSS -->
-  <link href="resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="resources/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+  <link href="resources/css/minty.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
   <link href="resources/css/shop-homepage.css" rel="stylesheet">
@@ -33,6 +34,8 @@
     </div>
     <!-- /.container -->
   </footer>
+  
+  
 
   <!-- Bootstrap core JavaScript -->
   <script src="resources/vendor/jquery/jquery.min.js"></script>
