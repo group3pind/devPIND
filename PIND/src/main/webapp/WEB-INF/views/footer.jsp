@@ -7,7 +7,7 @@
 <title>PIND page footer</title>
 
   <!-- Bootstrap core CSS -->
-  <link href="resources/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+  <link href="resources/css/bootstrap.css" rel="stylesheet">
   <link href="resources/css/minty.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
@@ -20,8 +20,7 @@
    bottom:0px;
    height:60px;
    width:100%;
-   background:#35acff;
-   color: white;
+
 }
   
   </style>

@@ -7,7 +7,7 @@
 <title>PIND page header</title>
 
   <!-- Bootstrap core CSS -->
-  <link href="resources/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+  <link href="resources/css/bootstrap.css" rel="stylesheet">
   <link href="resources/css/minty.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
