@@ -4,10 +4,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>My Channel</title>
-<link href="../resources/css/myChannel.css" rel="stylesheet" type="text/css">
-<link href="../resources/css/myChannel2.css" rel="stylesheet" type="text/css">
-<link href="../resources/css/bootstrap.css" rel="stylesheet">
-<link href="../resources/css/minty.css" rel="stylesheet" type="text/css">
+<link href="css/myChannel.css" rel="stylesheet" type="text/css">
+<link href="css/myChannel2.css" rel="stylesheet" type="text/css">
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/minty.css" rel="stylesheet" type="text/css">
 
 <style type="text/css">
 .photo {
