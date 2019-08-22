@@ -15,7 +15,7 @@
   
   <style type="text/css">
   footer {
-   position:fixed;
+   position:relative;
    left:0px;
    bottom:0px;
    height:60px;
@@ -38,6 +38,5 @@ border-top: solid 1px black;
 
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
