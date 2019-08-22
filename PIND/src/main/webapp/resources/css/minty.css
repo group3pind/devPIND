@@ -1,3 +1,4 @@
+@CHARSET "UTF-8";
 /*!
  * Bootswatch v4.3.1
  * Homepage: https://bootswatch.com
@@ -162,7 +163,7 @@ sup {
 }
 
 a {
-  color: #78C2AD;
+  color: #4d5956;
   text-decoration: none;
   background-color: transparent;
 }
@@ -557,12 +558,32 @@ pre code {
   overflow-y: scroll;
 }
 
+.container_wrap{
+	width:100%;
+	display: grid;
+	grid-template-columns: 1fr 5fr 1fr;
+}
+
 .container {
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+}
+
+.container_left .container_right{
+	width: 100%;
+}
+
+.c1, .c2{
+	float: left;
+}
+.c3{
+	float: right;
+}
+.col-lg-11{
+	margin: 0px auto;
 }
 
 @media (min-width: 576px) {
@@ -4896,7 +4917,7 @@ input[type="button"].btn-block {
 }
 
 .card-title {
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.1rem;
 }
 
 .card-subtitle {
