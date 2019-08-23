@@ -3,7 +3,7 @@
 .container_wrap{
 	width:100%;
 	display: grid;
-	grid-template-columns: 1fr 5fr 1fr;
+	grid-template-columns: 1fr 20fr 1fr;
 }
 
 .container {
@@ -24,6 +24,16 @@
 .c3{
 	float: right;
 }
-.col-lg-11{
+.col-lg-10{
 	margin: 0px auto;
+}
+
+@media (min-width: 992px) {
+  .col-lg-10 {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 83.3333333333%;
+            flex: 0 0 83.3333333333%;
+    max-width: 83.3333333333%;
+    margin: 0px auto;
+  }
 }
