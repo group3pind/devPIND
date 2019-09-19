@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 글정보 처리 SQL -->
+<mapper namespace="com.team.pind.dao.CommentMapper">
+ 
+ <!-- 코멘트 정보 저장 -->
+ <insert id="insert" parameterType="CommentVO">
+	insert into
+		PIND_Comment
+	values (SEQ_pind_comment_Num.nextval, #{pind_comment_Email}, #{pind_comment_Content}, #{pind_video_Num})
+ </insert>
+
+  <!--  코멘트 전부 출력-->
+  <!-- 코멘트 전부 출력-->
+
+
+<select parameterType="string" id="showList" resultType="CommentVO">
+ select pind_comment_Num, 
+ (select pind_image_savedfile from pind_image where PIND_Comment.pind_comment_Email = PIND_Image.pind_mem_Email) AS "pind_image_savedfile", 
+ (select pind_mem_Nickname from pind_member where PIND_member.pind_mem_Email = PIND_Comment.pind_comment_Email) AS "pind_comment_Email", 
+ pind_comment_Content
+ from PIND_Comment 
+ where pind_video_Num = #{num} 
+ order by pind_comment_Num desc 
+ </select>
+<!--   <select id="showList" parameterType="string" resultType="CommentVO">
+  	select 
+  		pind_comment_Num, 
+  		(select pind_mem_Nickname from pind_member where PIND_member.pind_mem_Email = PIND_Comment.pind_comment_Email) AS "pind_comment_Email", 
+  		pind_comment_Content
+  	from
+  		PIND_Comment
+  	where
+  		pind_video_Num = #{num}
+  	order by pind_comment_Num desc
+  </select> -->
+  
+<!--   코멘트 삭제 -->
+  <delete id="delete" parameterType="string">
+  	delete from
+  		PIND_Comment
+  	where pind_comment_Num = #{num} 
+  </delete>
+  
+<!--  코멘트 수정 -->
+  <update id="update" parameterType="CommentVO">
+  	update 
+  		PIND_Comment
+  	set
+  		pind_comment_Content = #{pind_comment_Content}
+  	where pind_comment_Num = #{pind_comment_Num}
+  </update>
+  
+</mapper>

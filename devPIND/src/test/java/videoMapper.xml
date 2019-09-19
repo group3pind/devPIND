@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.team.pind.dao.VideoMapper">
+
+	<select id="allVideo" resultType="VideoVO">
+		select * from PIND_Media order
+		by pind_video_Num desc
+	</select>
+
+	<!-- video insert -->
+	<insert id="insertVideo" parameterType="VideoVO">
+		insert into
+		PIND_Media(pind_video_Num, pind_video_orifile, pind_video_savedfile,
+		pind_mem_Email, pind_video_Nickname)
+		values (SEQ_pind_video_Num.nextval,
+		#{pind_video_orifile} ,#{pind_video_savedfile}, #{pind_video_Email}, #{pind_video_Nickname})
+	</insert>
+
+	<!-- Video Detail update -->
+	<update id="updateVideo">
+		update PIND_Media
+		set pind_video_Title =
+		#{pind_video_Title}, pind_video_About = #{pind_video_About},
+		pind_mCategory = #{pind_mCategory}
+		where pind_video_Num =
+		#{pind_video_Num}
+	</update>
+
+	<!-- video number select -->
+	<select id="selectVideo" resultType="VideoVO">
+		select * from PIND_Media
+		where pind_video_savedfile = #{pind_video_savedfile} and
+		to_char(pind_video_Date,'yyyy/mm/dd') = #{pind_video_date}
+	</select>
+	
+	<!-- 비디오 like, dislike default -->
+	<insert id="insertVideoEval" parameterType="int">
+		insert into
+		PIND_MediaEval(pind_video_Num)
+		values (#{pind_video_Num})
+	</insert>
+
+	<!-- 비디오페이지 -->
+	<select resultType="VideoVO" id="getVideoPage" parameterType="int">
+		select * from PIND_Media where pind_video_Num = #{pind_video_Num} </select>
+
+	<!-- hits -->
+	<update id="hitsUp" parameterType="int"> update PIND_Media set
+		pind_video_Hits = pind_video_Hits + 1 where pind_video_Num = #{pind_video_Num}
+	</update>
+
+	<!--main search -->
+	<select id="mainSearch" parameterType="map" resultType="VideoVO">
+		select * from PIND_Media
+		<where>
+			<foreach collection="kwd" item="k" separator=" ">
+				or upper(pind_video_Title) like upper('%'||#{k}||'%') or
+				upper(pind_video_About) like upper('%'||#{k}||'%')
+			</foreach>
+		</where>
+
+		order by
+		<choose>
+			<when test="sort == 'default'">
+				pind_video_Date
+			</when>
+			<when test="sort == 'hits'">
+				pind_video_Hits
+			</when>
+			<when test="sort == 'like'">
+				(select pind_mediaeval_like from PIND_MediaEval where
+				PIND_Media.pind_video_Num = PIND_MediaEval.pind_video_Num)
+			</when>
+		</choose>
+		desc
+	</select>
+
+	
+	<!-- 좋아요 업 -->
+	<update id="likeUp" parameterType="string">
+		update
+		PIND_MediaEval
+		set
+		pind_mediaeval_like = pind_mediaeval_like + 1
+		where
+		pind_video_Num = #{num}
+	</update>
+
+	<!-- 싫어요 업 -->
+	<update id="dislikeUp" parameterType="string">
+		update
+		PIND_MediaEval
+		set
+		pind_mediaeval_dislike = pind_mediaeval_dislike + 1
+		where
+		pind_video_Num = #{num}
+	</update>
+
+	<!-- 좋아요 싫어요 카운트 -->
+	<select id="likeCnt" parameterType="string" resultType="LikeVO">
+		select
+		*
+		from
+		PIND_MediaEval
+		where
+		pind_video_Num = #{num}
+	</select>
+
+	<!-- 좋아요 다운 -->
+	<update id="likeDown" parameterType="string">
+		update
+		PIND_MediaEval
+		set
+		pind_mediaeval_like = pind_mediaeval_like -1
+		where
+		pind_video_Num = #{num}
+	</update>
+
+	<!-- 싫어요 다운 -->
+	<update id="dislikeDown" parameterType="string">
+		update
+		PIND_MediaEval
+		set
+		pind_mediaeval_dislike = pind_mediaeval_dislike -1
+		where
+		pind_video_Num = #{num}
+	</update>
+	
+	
+	<!--닉네임으로 내가 업로드한 영상 가져오기 -->
+	<select id="myVideoList" parameterType = "string" resultType = "VideoVO">
+		select * from
+		PIND_Media
+		where pind_video_Nickname =#{nick}
+	</select>
+	
+		<update id="category" parameterType="map">
+	update PIND_mCategory
+	set 
+	<choose>
+	   <when test="cg == 'music'">
+	   	 pind_mcategory_Music =  pind_mcategory_Music +1
+	   </when>
+	   <when test="cg == 'sports'">
+	   	 pind_mcategory_Sports = pind_mcategory_Sports +1
+	   </when>
+	   <when test="cg == 'movie'">
+	   	 pind_mcategory_Movie = pind_mcategory_Movie +1
+	   </when>
+	   <when test="cg == 'drama'">
+	   	 pind_mcategory_Drama = pind_mcategory_Drama +1
+	   </when>
+	   <when test="cg == 'news'">
+	   	 pind_mcategory_News = pind_mcategory_News +1
+	   </when>
+	</choose>
+	where pind_mem_Email = #{id}	
+	
+	</update>
+	
+	
+	<select id="getMainList" resultType="VideoVO">
+	select * from PIND_Media 
+	</select>
+	
+	
+	<select id="getCategoryCnt" parameterType="string" resultType="string">
+	select greatest(pind_mcategory_Music,pind_mcategory_Sports,pind_mcategory_Movie,pind_mcategory_Drama, pind_mcategory_News)
+	from PIND_mCategory
+	where pind_mem_Email = #{id}
+	</select>
+	
+	<select id="getCategoryCols" parameterType="string" resultType="McategoryVO">
+	select * from PIND_mCategory where pind_mem_Email = #{id}
+	</select>
+	
+	<select id="getCategoryVideo" parameterType="string" resultType="VideoVO">
+	select * from PIND_Media
+	where pind_mCategory = #{favCg}
+	</select>
+		
+	<!-- <delete id= "deleteVideo" parameterType= "int">
+		delete from PIND_Media
+		where pind_video_Num = #{num}
+	</delete>
+		 -->
+		 
+		 
+
+<update id="insertHistory" parameterType="History"> 
+insert into PIND_history (pind_mem_Email, pind_history_Num, pind_video_Num, pind_history_Current, pind_history_Total ) 
+values ( #{pind_mem_Email}, SEQ_pind_history_Num.nextval, #{pind_video_Num}, #{pind_history_Current}, #{pind_history_Total} ) 
+</update>
+
+<select resultType="History" id="getHistory" parameterType="string"> 
+select pind_mem_Email, pind_history_Num, pind_video_Num, 
+pind_history_Current,trunc((pind_history_Current / pind_history_Total)*100) as "pind_history_Progress", 
+pind_history_Date,pind_history_Total, 
+(select pind_video_Title from PIND_Media where PIND_Media.pind_video_Num = PIND_history.pind_video_Num) as "pind_video_Title", 
+(select pind_video_Hits from PIND_Media where PIND_Media.pind_video_Num = PIND_history.pind_video_Num) as "pind_video_Hits", 
+(select pind_video_Date from PIND_Media where PIND_Media.pind_video_Num = PIND_history.pind_video_Num) as "pind_video_Date" 
+from PIND_history 
+where pind_mem_Email = #{pind_mem_Email} 
+order by pind_history_Date desc 
+</select>
+
+
+<delete id="deleteHistory" parameterType="java.util.ArrayList">
+delete PIND_history 
+	<where>
+		<foreach separator=" " item="i" collection="list">
+			or pind_history_Num = #{i} 
+		</foreach>
+	</where>
+</delete>
+
+</mapper>

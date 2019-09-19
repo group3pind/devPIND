@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.team.pind.dao.MemberMapper">
+
+	<insert id="insertJoin" parameterType="MemberVO">
+		insert into
+		PIND_Member(pind_mem_Email, pind_mem_PW, pind_mem_Nickname) values
+		(#{pind_mem_Email}, #{pind_mem_PW} ,#{pind_mem_Nickname})
+	</insert>
+
+	<!-- 회원 가입 시 mCategory에 회원 이메일 넣기 -->
+	<insert id= "makeCategory" parameterType = "string">
+	 insert into PIND_mCategory(pind_mem_Email)
+	 values(#{pind_mem_Email})
+	</insert>
+
+	<update id="updateJoincommit">
+		update PIND_Member set pind_mem_Joincommit = 'y'
+		where pind_mem_Email = #{pind_mem_Email} and pind_mem_Joincommit =
+		#{pind_mem_Joincommit}
+	</update>
+
+	<update id="GetKey">
+		update PIND_Member set pind_mem_Joincommit =
+		#{pind_mem_Joincommit} where pind_mem_Email = #{pind_mem_Email}
+	</update>
+
+	<select parameterType="string" id="isId" resultType="MemberVO">
+		select * from PIND_Member where pind_mem_Email = #{pind_mem_Email}
+	</select>
+
+	<select parameterType="string" id="isNickname" resultType="MemberVO">
+		select * from PIND_Member where pind_mem_Nickname = #{pind_mem_Nickname}
+	</select>
+	
+	<select id="Memberchk" parameterType="MemberVO">
+		select * from PIND_Member where pind_mem_Email = #{pind_mem_Email} and pind_mem_Joincommit = #{pind_mem_Joincommit}
+	</select>
+
+	<!-- 여기서부터 추가 : 프로필 -->
+	<insert id="insertProfile" parameterType="ProfileVO">
+		insert into PIND_Image values(#{pind_image_savedfile}, #{pind_mem_Email})
+	</insert>
+
+	<select id="getProfile" parameterType="string" resultType="string">
+		select pind_image_savedfile from PIND_Image where pind_mem_Email = #{logId}
+	</select>
+
+
+</mapper>

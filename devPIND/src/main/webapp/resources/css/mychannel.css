@@ -1,0 +1,10 @@
+@CHARSET "UTF-8";
+
+
+.section-padding.tab-content{
+	display: none;
+	}
+
+.section-padding.tab-content.current{
+	display: block;
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias type="com.team.pind.vo.MemberVO" alias="MemberVO" />
+		<typeAlias type="com.team.pind.vo.VideoVO" alias="VideoVO" />
+		<typeAlias type="com.team.pind.vo.CommentVO" alias="CommentVO" /> 
+		<typeAlias type="com.team.pind.vo.LikeVO" alias="LikeVO" />
+		<typeAlias type="com.team.pind.vo.ProfileVO" alias="ProfileVO" />
+		<typeAlias type="com.team.pind.vo.McategoryVO" alias="McategoryVO" />
+		<typeAlias type="com.team.pind.vo.HistoryVO" alias="HistoryVO" />
+	</typeAliases>
+	<mappers>
+		<mapper resource="memberMapper.xml" />
+		<mapper resource="videoMapper.xml" />
+		<mapper resource="commentMapper.xml" />
+	</mappers>
+</configuration>
