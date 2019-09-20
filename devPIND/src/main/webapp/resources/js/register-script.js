@@ -28,7 +28,7 @@ function type_check() {
 					, dataType : 'text'
 					, success : function (s) {
 						if ( s.match('useable') ) {
-							$('.checkDivText').css('color', 'greed');
+							$('.checkDivText').css('color', 'green');
 							$('.checkDivText').html('Verified');
 							e_verify = 'y';
 						} else {
